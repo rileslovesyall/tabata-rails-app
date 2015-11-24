@@ -3,5 +3,5 @@
 <h2> <%= @user.username %>'s favorite exercises </h2>
 
 <% @favorites.each do |fav| %>
-  <li><%= link_to "#{fav.name.capitalize}", exercise_path(fav.exercise_id) %></li>
+  <li><%= link_to "#{fav.name}", exercise_path(fav) %></li>
 <% end %>

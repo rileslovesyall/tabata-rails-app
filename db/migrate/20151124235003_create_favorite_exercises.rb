@@ -1,6 +1,6 @@
-class CreateFavorites < ActiveRecord::Migration
+class CreateFavoriteExercises < ActiveRecord::Migration
   def change
-    create_table :favorites do |t|
+    create_table :favorite_exercises do |t|
       t.integer :user_id
       t.integer :exercise_id
 

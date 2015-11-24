@@ -6,11 +6,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@favorites = []
-		favorite_exercises = FavoriteExercise.where(user_id: '#{params[:@user.id]}')
-		favorite_exercises.each do |fav_ex|
-			@favorites.push(Exercise.find(fav_ex.exercise_id))
-		end
+		@favorites = @user.favorites
 	end
 
 	def new
