@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
 
   def new
-    
   end
 
   def create
-    @user = User.authenticate(params[:username], params[:password])
+    @user = User.authenticate(params[:session][:username], params[:session][:password])
     if @user
       flash[:notice] = "You've been logged in."
       session[:user_id] = @user.id
