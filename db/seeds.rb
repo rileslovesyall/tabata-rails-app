@@ -6,10 +6,10 @@ users = [
 ]
 
 exercises = [
-	{}, 
-	{}, 
-	{}, 
-	{}
+	{name: 'burpees', body_focus: 'all'}, 
+	{name: 'pushups', body_focus: 'upper'}, 
+	{name: 'lunges', body_focus: 'lower'}, 
+	{name: 'jump rope', body_focus: 'all'}
 ]
 
 users.each do |user|
