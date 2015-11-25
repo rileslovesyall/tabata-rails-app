@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 	has_many :workouts
 	has_many :exercises
 	has_many :favorite_exercises
-	has_many :favorites, through: :favorite_exercises
+	has_many :favorites, through: :favorite_exercises, source: :exercises
 
 	attr_accessor :password
 	validates_confirmation_of :password
