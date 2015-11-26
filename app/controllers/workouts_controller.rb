@@ -2,6 +2,7 @@ class WorkoutsController < ApplicationController
 
 	def index
 		@workouts = Workout.all
+		@generator = Workout.generate
 	end
 
 	def show

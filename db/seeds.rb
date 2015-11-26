@@ -8,14 +8,14 @@ users = [
 exercises = [
 	{name: 'burpees', body_focus: 'all'}, 
 	{name: 'pushups', body_focus: 'upper'}, 
-	{name: 'lunges', body_focus: 'lower'}, 
-	{name: 'jump rope', body_focus: 'all'}
+	{name: 'lunges', body_focus: 'lower', user_id: 2}, 
+	{name: 'jump rope', body_focus: 'all', user_id: 1}
 ]
 
-favorites = [
-	{user_id: 1, exercise_id: 1},
+users_exercises = [
+	{user_id: 1, exercise_id: 1, is_favorite?: true},
 	{user_id: 1, exercise_id: 4},
-	{user_id: 2, exercise_id: 2},
+	{user_id: 2, exercise_id: 2, is_favorite?: true},
 	{user_id: 3, exercise_id: 3}
 ]
 
@@ -27,6 +27,3 @@ exercises.each do |exercise|
 	Exercise.create(exercise)
 end
 
-favorites.each do |fav|
-	FavoriteExercise.create(fav)
-end

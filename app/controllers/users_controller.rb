@@ -6,12 +6,11 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		# @favorites = @user.favorites
 	end
 
 	def new
 		@user = User.new
-	end
+end
 
 	def create
 		@user = User.new(user_params)

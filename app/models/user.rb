@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
-	has_many :workouts
-	has_many :exercises
-	has_many :favorite_exercises
-	has_many :favorites, through: :favorite_exercises, source: :exercises
+	has_many :workouts    
+	has_many :users_exercises
+	has_many :exercises, through: :users_exercises
+
+	scope :favorite_exercises, -> {
+	 joins(:users_exercises).
+	 where("users_exercises.is_favorite = ?", true)
+	}
 
 	attr_accessor :password
 	validates_confirmation_of :password
