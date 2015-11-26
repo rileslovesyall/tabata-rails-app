@@ -1,6 +1,7 @@
 class Workout < ActiveRecord::Base
 	belongs_to :user 
-	has_many :exercises, :through => :exercises_workouts
+	has_many :exercises, through: :exercises_workouts
+	has_many :exercises_workouts
 
 	def self.generate 
 		exercise1 = Exercise.find(rand(0..(Exercise.length-1)))

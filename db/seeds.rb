@@ -12,12 +12,22 @@ exercises = [
 	{name: 'jump rope', body_focus: 'all', user_id: 1}
 ]
 
-users_exercises = [
-	{user_id: 1, exercise_id: 1, is_favorite?: true},
-	{user_id: 1, exercise_id: 4},
-	{user_id: 2, exercise_id: 2, is_favorite?: true},
-	{user_id: 3, exercise_id: 3}
+workouts = [
+	{name: "riley's fav"},
+	{name: 'burpees for days'},
+	{name: 'another workout'}
 ]
+
+# exercises_workouts = [
+# 	{exercise_id: 1, workout_id: 1},
+# 	{exercise_id: 1, workout_id: 2},
+# 	{exercise_id: 3, workout_id: 4},
+# 	{exercise_id: 4, workout_id: 3}
+# ]
+
+workouts.each do |workout|
+	Workout.create(workout)
+end
 
 users.each do |user|
 	User.create(user)
@@ -27,3 +37,6 @@ exercises.each do |exercise|
 	Exercise.create(exercise)
 end
 
+# exercises_workouts.each do |ex_work|
+# 	ExerciseWorkout.create(ex_work)
+# end
