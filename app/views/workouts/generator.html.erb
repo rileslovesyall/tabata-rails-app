@@ -26,5 +26,6 @@ number of exercises:
     <%= f.text_field :name, class: "name_field" %>
     <%= f.submit 'Save this Workout', class: 'submit_button' %>
     <%= hidden_field_tag 'exs[]', @ids %>
+    <%= hidden_field_tag 'user_id', current_user.id %>
   <% end %>
 <% end %>

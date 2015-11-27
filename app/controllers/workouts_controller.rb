@@ -23,7 +23,6 @@ class WorkoutsController < ApplicationController
 
 	def create
 		@workout = Workout.create(workout_params)
-		@workout.user_id = current_user.id
 		exs_string = params[:exs]
 		ex_id_arr = exs_string.split(' ')
 		ex_id_arr.each do |ex|
@@ -57,7 +56,7 @@ class WorkoutsController < ApplicationController
 	private
 
 	def workout_params
-		params.require(:workout).permit(:name)
+		params.require(:workout).permit(:name).merge(user_id: current_user.id)
 	end
 
 
