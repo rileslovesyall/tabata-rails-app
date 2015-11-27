@@ -3,16 +3,22 @@ $reading_font: 'Josefin Sans';
 
 body {
   font-family: $reading_font;
+}
+
+#wrap {
+  margin: auto;
   width: 900px;
-  margin: 0 auto;
+  text-align: center;
 }
 
 h1 {
   font-family: $display_font;
+  font-size: 46px;
 }
 
 h2 {
   font-family: $display_font;
+  font-size: 30px;
 }
 
 #nav_bar {
