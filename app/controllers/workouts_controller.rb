@@ -47,6 +47,15 @@ class WorkoutsController < ApplicationController
 			not_user
 		end
 		workout.update(workout_params)
+		exs = params[:workout][:exercise_ids]
+		exs.each do |ex|
+			if ex.to_i != 0 
+				x = Exercise.find(ex.to_i)
+				if !workout.exercises.include?(x)
+					workout.exercises <<  x 
+				end
+			end
+		end
 		redirect_to workout_path(workout)
 	end
 
@@ -58,7 +67,7 @@ class WorkoutsController < ApplicationController
 	private
 
 	def workout_params
-		params.require(:workout).permit(:name).merge(user_id: current_user.id)
+		params.require(:workout).permit(:name, :exercise_ids).merge(user_id: current_user.id)
 	end
 
 

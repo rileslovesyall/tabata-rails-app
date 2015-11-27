@@ -1,7 +1,11 @@
-<%= form_for :workout do |f| %>
+<%= form_for :workout, url: workout_path(@workout), method: :patch do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>:
-  <% Exercise.all.each do |ex| %>
-    <%= f.check_box 'ex', "#{ex.name}" %>
+  <%= f.collection_check_boxes :exercise_ids , Exercise.all, :id, :name do |b| %>
+    <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
   <% end %>
+ <%= f.submit %>
 <% end %>
