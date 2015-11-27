@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
-@@c_user_id = session[:user_id]
 
 	def index
 		@users = User.all
 	end
 
 	def show
-		if @@c_user_id == params[:id]
-			@user = User.find(params[:id])
-		else 
+		@user = User.find(params[:id])
+		unless @user == current_user
 			not_user
 		end
 	end
@@ -29,16 +27,15 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		if @@c_user_id == params[:id]
-			@user = User.find(params[:id])
-		else
+		@user = User.find(params[:id])
+		unless @user == current_user
 			not_user
 		end
 	end
 
 	def update
-		if @@c_user_id == params[:id]
-			user = User.find(params[:id])
+		user = User.find(params[:id])
+		if user == current_user
 			user.update(user_params)
 		else 
 			not_user
