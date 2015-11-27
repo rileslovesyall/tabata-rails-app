@@ -1,0 +1,13 @@
+<h1>all exercises</h1>
+
+<% @exercises.each do |ex| %>
+  <div class="exercise_list">
+    <%= link_to "#{ex.name}", exercise_path(ex), class: 'user_creation' %>
+    <% if ex.user == current_user %>
+    *
+    <% end %>
+  </div>
+<% end %>
+
+<br><br>
+* exercises you created
