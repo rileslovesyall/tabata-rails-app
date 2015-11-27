@@ -11,14 +11,14 @@
 <% end %>
 
 <% if @workout.user == current_user && !current_user.nil? %>
-  <%= render 'divider' %>
+  <%= render 'head_divider' %>
   <%= link_to 'add an exercise', edit_workout_path(@workout) %>
 <% end %>
 
-<br><br>
+<br><br><br>
 
 <%= link_to 'all workouts', workouts_path, class: 'nav_link' %>
-
+<br><br><br>
 <% if !@workout.user.nil? %>
   Saved by:  <%= @workout.user.username %>
 <% end %>
