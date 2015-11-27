@@ -20,15 +20,27 @@ class ExercisesController < ApplicationController
 	end
 
 	def edit
-		
+		@exercise = Exercise.find(params[:id])
+		unless @exercise.user == current_user
+			not_user
+		end
 	end
 
 	def update
-		
+		exercise = Exercise.find(params[:id])
+		unless @exercise.user == current_user
+			not_user
+		end
+		exercise.update(exercise_params)
+		redirect_to exercise_path(exercise)
 	end
 
 	def destroy
+		unless User.find(params[:id]) == current_user
+			not_user
+		end
 		Exercise.delete(params[:id])
+		redirect_to exercises_path
 	end
 
 	private
