@@ -5,7 +5,7 @@
   <div>
     <%= link_to "#{ex.name}", exercise_path(ex.id) %>
     <% if @workout.user == current_user && !current_user.nil? %>
-      / <%= link_to 'delete', exercise_path(ex) %>
+      / <%= link_to 'delete', workout_path(@workout, remove: ex.id) %>
     <% end %>
   </div>
 <% end %>
@@ -13,6 +13,8 @@
 <% if @workout.user == current_user && !current_user.nil? %>
   <%= render 'head_divider' %>
   <%= link_to 'add an exercise', edit_workout_path(@workout) %>
+  <%= render 'divider' %>
+  <%= link_to 'delete workout', workout_path(@workout), method: :delete %>
 <% end %>
 
 <br><br><br>

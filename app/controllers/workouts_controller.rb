@@ -16,6 +16,7 @@ class WorkoutsController < ApplicationController
 
 	def show
 		@workout = Workout.find(params[:id])
+		@workout.exercises.delete(params[:remove])if params[:remove]
 	end
 
 	def new
