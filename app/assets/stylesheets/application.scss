@@ -1,9 +1,14 @@
 $teal: #009999;
 $grey: #777777;
+$purple: #e5ccff;
+$dark-grey: #666666;
 
 $display_font: 'Codystar';
 $reading_font: 'Josefin Sans';
 $flash-color: $teal;
+$contrast-background: $purple;
+$contrast-text: $teal;
+$soft-text: $dark-grey;
 
 body {
   font-family: $reading_font;
@@ -27,11 +32,13 @@ body {
 h1 {
   font-family: $display_font;
   font-size: 46px;
+  margin-bottom: 10px;
 }
 
 h2 {
   font-family: $display_font;
   font-size: 30px;
+  margin-top: 1%;
 }
 
 #nav_bar {
@@ -39,6 +46,16 @@ h2 {
   padding: 5px;
   margin-bottom: 15px;
   margin-top: 15px;
+  background-color: $contrast-background;
+  width: 95%;
+  margin: auto;
+}
+
+#front_page_intro {
+  width: 60%;
+  background-color: $contrast-background;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .description {
@@ -49,10 +66,24 @@ h2 {
   font-size: 22px;
 }
 
+.nav_link {
+  border-top: 2px solid $contrast-text;
+  border-bottom: 2px solid $contrast-text;
+  padding: 1%;
+}
+
 #divider {
     font-size: 24px;
     color: $grey;
     margin: 20px;
+}
+
+.head_divider {
+  border-top: 2px solid $contrast-text;
+  width: 40%;
+  margin: auto;
+  padding-bottom: 3%;
+  margin-top: 3%
 }
 
 form {
@@ -61,17 +92,26 @@ form {
 
 form input {
   font-family: $reading_font;
+  font-size: 16px;
+  margin: 2px;
+}
+
+#login {
+  margin-top: 2%
+}
+
+.submit-button {
+  font-family: $reading_font;
+  background-color: $contrast-background;
+  border: 1px dotted black;
+  font-size: 16px;
+  margin-top: 1%;
+  padding-top: 6px;
+  color: $soft-text;
 }
 
 #name_field {
   margin-bottom: 5px;
-  font-size: 16px;
-}
-
-#submit_button {
-  font-family: $reading_font;
-  background-color: #000000;
-  border: 1px solid black;
   font-size: 16px;
 }
 
@@ -85,6 +125,6 @@ a:visited {
 }
 
 a:hover {
-  color: $grey;
+  color: $contrast-text;
 }
 

@@ -1,5 +1,7 @@
 <h1>fresh workout</h1>
 
+<%= render 'head_divider' %>
+
 number of exercises: 
 <%= link_to 'one', generator_path(num_ex: '1') %> / 
 <%= link_to 'two', generator_path(num_ex: '2') %> / 
@@ -7,6 +9,7 @@ number of exercises:
 <%= link_to 'four', generator_path(num_ex: '4') %> / 
 <%= link_to 'five', generator_path(num_ex: '5') %> 
 
+<%= render 'head_divider' %>
 
 <% @generator.each do |ex| %>
   <h2> <%= ex.name %> </h2>
@@ -17,13 +20,13 @@ number of exercises:
 <% end %>
 
 <% if @x != 0 && @descr.nil? || @descr == 'off'%>
-  <%= link_to 'descriptions on', generator_path(descr: 'on', num_ex: @x) %>
+  <%= link_to 'turn descriptions on', generator_path(descr: 'on', num_ex: @x) %>
+  <%= render 'head_divider' %>
 <% end %>
 <% if @x != 0 && @descr == 'on'%>
-  <%= link_to 'descriptions off', generator_path(descr: 'off', num_ex: @x) %>
+  <%= link_to 'turn descriptions off', generator_path(descr: 'off', num_ex: @x) %>
+  <%= render 'head_divider' %>
 <% end %>
-
-<%= render 'divider' %>
 
 <% if session[:user_id].nil? %>
   <%= link_to 'sign up', signup_path %> to save your workouts.
@@ -41,4 +44,4 @@ number of exercises:
 
 <%= render 'divider' %>
 
-<%= link_to 'all saved workouts', workouts_path %>
+<%= link_to 'all saved workouts', workouts_path, class: 'nav_link' %>

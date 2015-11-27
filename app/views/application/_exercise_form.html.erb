@@ -5,5 +5,5 @@
   <%= f.select :body_focus, options_for_select(['all', 'core', 'upper body', 'lower body']) %><br><br>
   <%= f.label :description, 'Description' %>:
   <%= f.text_area :description %><br><br>
-  <%= f.submit %>
+  <%= f.submit, class: 'submit-button' %>
 <% end %>
