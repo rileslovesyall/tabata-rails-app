@@ -2,18 +2,21 @@
 
 <% @workout.exercises.each do |ex| %>
   <div>
-    <%= link_to "#{ex.name}", exercise_path(ex.id) %> /
-    <% if @workout.user == current_user %>
-      <%= link_to 'delete', exercise_path(ex) %>
+    <%= link_to "#{ex.name}", exercise_path(ex.id) %>
+    <% if @workout.user == current_user && !current_user.nil? %>
+      / <%= link_to 'delete', exercise_path(ex) %>
     <% end %>
   </div>
 <% end %>
 
 <%= render 'divider' %>
 
-<% if @workout.user == current_user %>
+<% if @workout.user == current_user && !current_user.nil? %>
   <%= link_to 'add an exercise', edit_workout_path(@workout) %>
 <% end %>
 
 <br><br>
-Saved by:  <%= @workout.user.username %>
+
+<% if !@workout.user.nil? %>
+  Saved by:  <%= @workout.user.username %>
+<% end %>
