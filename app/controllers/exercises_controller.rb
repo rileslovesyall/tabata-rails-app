@@ -14,14 +14,9 @@ class ExercisesController < ApplicationController
 	end
 
 	def create
-		@exercise = Exercise.new(exercise_params)
-		if @exercise.save
-			flash[:notice] = "You made a new exercise!"
-			redirect_to exercises_path
-		else
-			flash[:alert] = "There was a problem creating this exercise. Please try again."
-			redirect_to :back
-		end
+		@exercise = Exercise.create(exercise_params)
+		@exercise.user = User.find(session[:user_id])
+		redirect_to user_path(User.find(session[:user_id]))
 	end
 
 	private

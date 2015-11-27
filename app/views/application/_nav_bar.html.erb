@@ -1,12 +1,12 @@
 <div id="nav_bar">
+  <%= link_to 'Workout Generator', generator_path %> /
   <% if session[:user_id].nil? %>
     <%= link_to 'Log In', login_path %> /
     <%= link_to 'Sign Up', signup_path %> / 
   <% end %>
   <% if !session[:user_id].nil? %>
-    <%= link_to 'Log Out', logout_path %> / 
     <%= link_to 'Profile', user_path(User.find(session[:user_id])) %> / 
+    <%= link_to 'Add Exercise', new_exercise_path %> /
+    <%= link_to 'Log Out', logout_path %> 
   <% end %>
-  <%= link_to 'Workout Generator', generator_path %> / 
-  <%= link_to 'Add Exercise', new_exercise_path %>
 </div>
