@@ -27,6 +27,7 @@ class WorkoutsController < ApplicationController
 			x = Exercise.find(ex)
 			@workout.exercises <<  x
 		end
+		redirect_to workouts_path
 	end
 
 	private
