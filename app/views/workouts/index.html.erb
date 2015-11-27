@@ -4,7 +4,7 @@
 <br><br>
 <% @workouts.each do |workout| %>
   <div class="workout_list"><%= link_to "#{workout.name}", workout_path(workout) %>
-    <% if workout.user == current_user %>
+    <% if workout.user == current_user && !current_user.nil? %>
       *
     <% end %>
   </div>
@@ -12,5 +12,8 @@
 
 <%=  render 'divider' %>
 
-* workouts you saved
+
+<% if !current_user.nil? %>
+  * workouts you saved
+<% end %>
 
