@@ -48,9 +48,4 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:username, :password, :password_confirmation)
 	end
 
-	def not_user
-		flash[:alert] = "You do not have permission to view this page."
-		redirect_to "/"
-	end
-
 end

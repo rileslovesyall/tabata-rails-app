@@ -1,0 +1,6 @@
+<%= form_for :workout do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>:
+  <% Exercise.all.each do |ex| %>
+  <%= f.check_box 'ex' %>
+<% end %>

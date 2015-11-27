@@ -23,18 +23,29 @@ class WorkoutsController < ApplicationController
 
 	def create
 		@workout = Workout.create(workout_params)
+		@workout.user_id = current_user.id
 		exs_string = params[:exs]
 		ex_id_arr = exs_string.split(' ')
 		ex_id_arr.each do |ex|
 			x = Exercise.find(ex)
 			@workout.exercises <<  x
 		end
-		@workout.user_id = session[:user_id]
 		redirect_to workouts_path
 	end
 
 	def edit
-		
+		workout = Workout.find(params[:id])
+		unless workout.user == current_user
+			redirect_to :back
+			flash[:alert] = "You can't edit an exercise you don't own."
+		end
+	end
+
+	def update
+		workout = Workout.find(params[:id])
+		unless workout.user == current_user
+			not_user
+		end
 	end
 
 	def destroy

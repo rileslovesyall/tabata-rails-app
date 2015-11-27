@@ -23,6 +23,10 @@ class ExercisesController < ApplicationController
 		
 	end
 
+	def update
+		
+	end
+
 	def destroy
 		Exercise.delete(params[:id])
 	end

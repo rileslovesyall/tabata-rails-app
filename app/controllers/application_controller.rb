@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
 
+	def not_user
+	flash[:alert] = "You do not have permission to view this page."
+	redirect_to :back
+	end
+
 end
