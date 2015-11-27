@@ -11,8 +11,17 @@ number of exercises:
 
 <%= render 'head_divider' %>
 
+<div class='intro'>
+  <h2>Tabata Rounds</h2>
+  Do 8 rounds of each exercise. <br>
+  - 20 sec on <br>
+  - 10 sec rest<br> 
+</div>
+
+<br>
+
 <% @generator.each do |ex| %>
-  <h2> <%= ex.name %> </h2>
+  <h2> <%= link_to "#{ex.name}", exercise_path(ex) %> </h2>
   <% if @descr == 'on'%>
     <div class='ex-description'> <%= ex.description %> </div>
     <%= render 'divider' %>

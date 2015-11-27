@@ -1,11 +1,18 @@
 <h1><%= @workout.name %></h1>
 <%= render 'head_divider' %>
 
+<div class='intro'>
+  <h2>Tabata Rounds</h2>
+  Do 8 rounds of each exercise. <br>
+  - 20 sec on <br>
+  - 10 sec rest<br> 
+</div>
+
 <% @workout.exercises.each do |ex| %>
-  <div>
-    <%= link_to "#{ex.name}", exercise_path(ex.id) %>
+  <div class='workout_list'>
+    <h2 class='workout_ex'><%= link_to "#{ex.name}", exercise_path(ex.id) %></h2>
     <% if @workout.user == current_user && !current_user.nil? %>
-      / <%= link_to 'delete', workout_path(@workout, remove: ex.id) %>
+      <%= link_to 'delete', workout_path(@workout, remove: ex.id), class: 'small_link' %>
     <% end %>
   </div>
 <% end %>
