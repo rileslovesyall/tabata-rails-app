@@ -1,10 +1,21 @@
 <h1><%= @exercise.name %></h1>
 
 <div class="description"><%= @exercise.description %></div>
- <% if @exercise.user == current_user %>
-    / <%= link_to 'edit', edit_exercise_path(@exercise) %>
-    / <%= link_to 'delete', exercise_path(@exercise), method: :delete %>
-  <% end %>
+
+<% if @exercise.user == current_user %>
+
+<%= render 'divider' %>
+
+<br>
+
+  <%= link_to 'edit', edit_exercise_path(@exercise) %> /
+  <%= link_to 'delete', exercise_path(@exercise), method: :delete %>
+
+<br>
+
+<% end %>
+
+<%= render 'divider' %>
 
 <br>
 
