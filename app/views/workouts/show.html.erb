@@ -14,7 +14,7 @@
   <%= render 'head_divider' %>
   <%= link_to 'add an exercise', edit_workout_path(@workout) %>
   <%= render 'divider' %>
-  <%= link_to 'delete workout', workout_path(@workout), method: :delete %>
+  <%= link_to 'delete workout', workout_path(@workout), method: :delete, :onclick => 'alert("Are you sure?")' %>
 <% end %>
 
 <br><br><br>
