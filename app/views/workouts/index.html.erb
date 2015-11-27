@@ -23,5 +23,5 @@ How many exercises do you want to do today? <br>
 <% end %>
 <br><br>
 <% @workouts.each do |workout| %>
-  <div class="workout_list"><%= workout.name %></div>
+  <div class="workout_list"><%= link_to "#{workout.name}", workout_path(workout) %></div>
 <% end %>
