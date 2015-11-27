@@ -1,0 +1,31 @@
+$display_font: 'Codystar';
+$reading_font: 'Josefin Sans';
+
+body {
+  font-family: $reading_font;
+  width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: $display_font;
+}
+
+h2 {
+  font-family: $display_font;
+}
+
+#nav_bar {
+  font-family: $display_font;
+  padding: 5px;
+/*  margin-bottom: 10px;*/
+  margin: 0 auto;
+}
+
+.description {
+  font-family: $reading_font;
+}
+
+a {
+  text-decoration: none;
+}
