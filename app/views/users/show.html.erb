@@ -1,5 +1,7 @@
 <h1> <%= @user.username %>'s user page </h1>
 
+<%= link_to 'Generate a Workout', workouts_path %>
+
 <h2>Saved Workouts</h2>
 <% @user.workouts.each do |w| %>
 <div> <%= link_to "#{w.name}", workout_path(w) %> </div>

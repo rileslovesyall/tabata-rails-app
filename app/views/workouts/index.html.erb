@@ -1,26 +1,12 @@
 <h1>Workout Generator</h1>
 
 How many exercises do you want to do today? <br>
-<%= link_to 'one', workouts_path(num_ex: '1') %>
-<%= link_to 'two', workouts_path(num_ex: '2') %>
-<%= link_to 'three', workouts_path(num_ex: '3') %>
-<%= link_to 'four', workouts_path(num_ex: '4') %>
-<%= link_to 'five', workouts_path(num_ex: '5') %>
+<%= link_to 'one', generator_path(num_ex: '1') %>
+<%= link_to 'two', generator_path(num_ex: '2') %>
+<%= link_to 'three', generator_path(num_ex: '3') %>
+<%= link_to 'four', generator_path(num_ex: '4') %>
+<%= link_to 'five', generator_path(num_ex: '5') %>
 
-<% @generator.each do |ex| %>
-  <h2> <%= ex.name %> </h2>
-  <div class='ex-description'> <%= ex.description %> </div>
-<% end %>
-
-
-<% if @generator.length != 0 %>
-  <%= form_for :workout do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.submit 'Save this Workout' %>
-    <%= hidden_field_tag 'exs[]', @ids %>
-  <% end %>
-<% end %>
 <br><br>
 <% @workouts.each do |workout| %>
   <div class="workout_list"><%= link_to "#{workout.name}", workout_path(workout) %></div>

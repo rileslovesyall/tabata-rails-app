@@ -2,8 +2,10 @@ class WorkoutsController < ApplicationController
 
 	def index
 		@workouts = Workout.all
-		x = params[:num_ex].to_i if !params[:num_ex].nil?
-		x = 0 if params[:num_ex].nil?
+	end
+
+	def generator
+		x = params[:num_ex].to_i
 		@generator = Workout.generate(x)
 		@ids = []
 		@generator.each do |ex|
@@ -27,6 +29,7 @@ class WorkoutsController < ApplicationController
 			x = Exercise.find(ex)
 			@workout.exercises <<  x
 		end
+		@workout.user_id = session[:user_id]
 		redirect_to workouts_path
 	end
 

@@ -1,0 +1,15 @@
+<h1>today's workout</h1>
+
+<% @generator.each do |ex| %>
+  <h2> <%= ex.name %> </h2>
+  <div class='ex-description'> <%= ex.description %> </div>
+<% end %>
+
+<br><br>
+
+<%= form_for :workout, url: workouts_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Save this Workout' %>
+  <%= hidden_field_tag 'exs[]', @ids %>
+<% end %>
