@@ -2,7 +2,9 @@ class WorkoutsController < ApplicationController
 
 	def index
 		@workouts = Workout.all
-		@generator = Workout.generate
+		x = params[:num_ex].to_i if !params[:num_ex].nil?
+		x = 3 if params[:num_ex].nil?
+		@generator = Workout.generate(x)
 	end
 
 	def show

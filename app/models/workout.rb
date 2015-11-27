@@ -3,14 +3,14 @@ class Workout < ActiveRecord::Base
 	has_many :exercises, through: :exercises_workouts
 	has_many :exercises_workouts
 
-	def self.generate 
-		exercise1 = Exercise.find(rand(1..(Exercise.all.length)))
-		exercise2 = Exercise.find(rand(1..(Exercise.all.length)))
-		until exercise1 != exercise2
-			exercise2 = Exercise.find(rand(1..(Exercise.all.length)))
+	def self.generate(x)
+		exs = Exercise.all.shuffle
+		gen_exs = []
+		x.times do
+			ex = exs.pop
+			gen_exs.push(ex)
 		end
-		generated_exs = [exercise1, exercise2]
-		return generated_exs
+		return gen_exs
 	end
 
 end
