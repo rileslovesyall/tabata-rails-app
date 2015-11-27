@@ -6,24 +6,15 @@ users = [
 ]
 
 exercises = [
-	{name: 'burpees', body_focus: 'all'}, 
-	{name: 'pushups', body_focus: 'upper'}, 
-	{name: 'lunges', body_focus: 'lower', user_id: 2}, 
-	{name: 'jump rope', body_focus: 'all', user_id: 1}
+	{name: 'burpees', body_focus: 'all', description: 'This is how you do a burpee.'}, 
+	{name: 'pushups', body_focus: 'upper', description:'This is how you do a pushup.'}, 
+	{name: 'lunges', body_focus: 'lower', description: 'This is how you do a lunge.', user_id: 2}, 
+	{name: 'jump rope', body_focus: 'all', description: "This is how you jump some rope.",user_id: 1}
 ]
 
 workouts = [
-	{name: "riley's fav"},
-	{name: 'burpees for days'},
-	{name: 'another workout'}
+	{name: "riley's fav", user_id: 1},
 ]
-
-# exercises_workouts = [
-# 	{exercise_id: 1, workout_id: 1},
-# 	{exercise_id: 1, workout_id: 2},
-# 	{exercise_id: 3, workout_id: 4},
-# 	{exercise_id: 4, workout_id: 3}
-# ]
 
 workouts.each do |workout|
 	Workout.create(workout)
@@ -36,7 +27,3 @@ end
 exercises.each do |exercise|
 	Exercise.create(exercise)
 end
-
-# exercises_workouts.each do |ex_work|
-# 	ExerciseWorkout.create(ex_work)
-# end

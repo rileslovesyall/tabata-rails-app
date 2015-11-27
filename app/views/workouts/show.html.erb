@@ -3,3 +3,6 @@
 <% @workout.exercises.each do |ex| %>
   <%= link_to "#{ex.name}", exercise_path(ex.id) %>
 <% end %>
+
+
+Saved by: <%= @workout.user.name %>

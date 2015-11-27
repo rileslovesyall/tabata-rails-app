@@ -1,6 +1,14 @@
 <h1> <%= @user.username %>'s user page </h1>
 
-<h2> <%= @user.username %>'s favorite exercises </h2>
+<h2>Saved Workouts</h2>
+<% @user.workouts.each do |w| %>
+<div> <%= link_to "#{w.name}", workout_path(w) %> </div>
+<% end %>
 
-<p> coming soon </p>
+<h2> Created Exercises </h2>
+<% @user.exercises.each do |ex| %>
+  <div id="exercise_list"><%= link_to "#{ex.name}", exercise_path(ex) %></div>
+<% end %>
+
+
 
