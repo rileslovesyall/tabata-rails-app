@@ -4,5 +4,9 @@
   <%= link_to "#{ex.name}", exercise_path(ex.id) %>
 <% end %>
 
+<% if session[:user_id] == @workout.user_id %>
+  <%= link_to 'add an exercise', edit_workout_path(@workout) %>
+<% end %>
+
 
 Saved by: <%= @workout.user.name %>

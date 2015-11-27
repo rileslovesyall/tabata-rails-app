@@ -19,6 +19,10 @@ class ExercisesController < ApplicationController
 		redirect_to user_path(User.find(session[:user_id]))
 	end
 
+	def edit
+		
+	end
+
 	def destroy
 		Exercise.delete(params[:id])
 	end
