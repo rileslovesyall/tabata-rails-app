@@ -40,8 +40,9 @@ number of exercises:
     <%= hidden_field_tag 'exs[]', @ids %>
     <%= hidden_field_tag 'user_id', current_user.id %>
   <% end %>
+  <%= render 'head_divider' %>
 <% end %>
 
-<%= render 'head_divider' %>
+
 
 <%= link_to 'all saved workouts', workouts_path %>
