@@ -9,7 +9,10 @@ exercises = [
 	{name: 'burpees', body_focus: 'all', description: 'This is how you do a burpee.'}, 
 	{name: 'pushups', body_focus: 'upper', description:'This is how you do a pushup.'}, 
 	{name: 'lunges', body_focus: 'lower', description: 'This is how you do a lunge.', user_id: 2}, 
-	{name: 'jump rope', body_focus: 'all', description: "This is how you jump some rope.",user_id: 1}
+	{name: 'jump rope', body_focus: 'all', description: "This is how you jump some rope.",user_id: 1},
+	{name: 'plank', body_focus: 'core', description:'Hold a plank for your each 20 seconds on. Switch to knees from toes to reduce intensity.'},
+	{name: 'mountain climber', body_focus: 'all', description:'This is how you do a mountain climber.'}
+
 ]
 
 workouts = [

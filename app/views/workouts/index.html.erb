@@ -1,6 +1,6 @@
 <h1>Workout Generator</h1>
 
-How many exercises do you want to do today? <br>
+how many exercises do you want to do today? <br>
 <%= link_to 'one', generator_path(num_ex: '1') %>
 <%= link_to 'two', generator_path(num_ex: '2') %>
 <%= link_to 'three', generator_path(num_ex: '3') %>
@@ -11,3 +11,4 @@ How many exercises do you want to do today? <br>
 <% @workouts.each do |workout| %>
   <div class="workout_list"><%= link_to "#{workout.name}", workout_path(workout) %></div>
 <% end %>
+
