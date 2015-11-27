@@ -5,8 +5,8 @@ class WorkoutsController < ApplicationController
 	end
 
 	def generator
-		x = params[:num_ex].to_i
-		@generator = Workout.generate(x)
+		@x = params[:num_ex].to_i
+		@generator = Workout.generate(@x)
 		@ids = []
 		@generator.each do |ex|
 			@ids.push(ex.id)
@@ -34,10 +34,9 @@ class WorkoutsController < ApplicationController
 	end
 
 	def edit
-		workout = Workout.find(params[:id])
-		unless workout.user == current_user
-			redirect_to :back
-			flash[:alert] = "You can't edit an exercise you don't own."
+		@workout = Workout.find(params[:id])
+		unless @workout.user == current_user
+			not_user
 		end
 	end
 
@@ -46,6 +45,8 @@ class WorkoutsController < ApplicationController
 		unless workout.user == current_user
 			not_user
 		end
+		workout.update(workout_params)
+		redirect_to workout_path(workout)
 	end
 
 	def destroy

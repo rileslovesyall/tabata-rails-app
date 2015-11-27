@@ -20,7 +20,7 @@ number of exercises:
   <%= link_to 'sign up', signup_path %> to save your workouts.
 <% end %>
 
-<% if !session[:user_id].nil? %>
+<% if !session[:user_id].nil? && @x != 0 %>
   <%= form_for :workout, url: workouts_path do |f| %>
     <%= f.label :name %>:
     <%= f.text_field :name, class: "name_field" %>
