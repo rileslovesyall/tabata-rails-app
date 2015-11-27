@@ -4,7 +4,7 @@
 
 <h2>Saved Workouts</h2>
 <% @user.workouts.each do |w| %>
-<div> <%= link_to "#{w.name}", workout_path(w) %> / <%= link_to 'edit', edit_workout_path(w) %> </div>
+<div> <%= link_to "#{w.name}", workout_path(w) %> / <%= link_to 'edit', edit_workout_path(w) %> / <%= link_to 'delete', workout_path(w), method: :delete %></div>
 <% end %>
  
  <br>

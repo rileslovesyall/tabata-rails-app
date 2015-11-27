@@ -33,6 +33,11 @@ class WorkoutsController < ApplicationController
 		redirect_to workouts_path
 	end
 
+	def destroy
+		Workout.delete(params[:id])
+		redirect_to user_path(session[:user_id])
+	end
+
 	private
 
 	def workout_params
