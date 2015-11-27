@@ -4,9 +4,13 @@
 <br><br>
 <% @workouts.each do |workout| %>
   <div class="workout_list"><%= link_to "#{workout.name}", workout_path(workout) %>
-    <% if !workout.user.nil? %>
-      / <%= workout.user.username %> 
+    <% if workout.user == current_user %>
+      *
     <% end %>
   </div>
 <% end %>
+
+<%=  render 'divider' %>
+
+* workouts you saved
 

@@ -1,12 +1,19 @@
 <h1><%= @workout.name %></h1>
 
 <% @workout.exercises.each do |ex| %>
-  <%= link_to "#{ex.name}", exercise_path(ex.id) %>
+  <div>
+    <%= link_to "#{ex.name}", exercise_path(ex.id) %> /
+    <% if @workout.user == current_user %>
+      <%= link_to 'delete', exercise_path(ex) %>
+    <% end %>
+  </div>
 <% end %>
 
-<% if session[:user_id] == @workout.user_id %>
+<%= render 'divider' %>
+
+<% if @workout.user == current_user %>
   <%= link_to 'add an exercise', edit_workout_path(@workout) %>
 <% end %>
 
-<!-- Bug: workout.user not assigning properly, need to fix -->
-<!-- Saved by:  workout.user.username  -->
+<br><br>
+Saved by:  <%= @workout.user.username %>
