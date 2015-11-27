@@ -1,8 +1,8 @@
 <h1> -- <%= @user.username %> -- </h1>  
   
 <div = "description">
-  <%= @user.bio %><br><br>
-  <%= link_to 'edit bio', edit_user_path(@user) %>
+  <h3><%= @user.bio %></h3><br>
+  / <%= link_to 'edit bio', edit_user_path(@user) %> /
 </div>
 
 <%= render 'divider' %> 

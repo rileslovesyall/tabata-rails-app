@@ -11,6 +11,7 @@ class WorkoutsController < ApplicationController
 		@generator.each do |ex|
 			@ids.push(ex.id)
 		end
+		@descr = params[:descr]
 	end
 
 	def show
