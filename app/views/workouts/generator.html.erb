@@ -10,15 +10,21 @@ number of exercises:
 <% @generator.each do |ex| %>
   <h2> <%= ex.name %> </h2>
   <div class='ex-description'> <%= ex.description %> </div>
+  <br>
+  <%= render 'divider' %>
 <% end %>
 
 <br><br>
 
-<%= form_for :workout, url: workouts_path do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Save this Workout' %>
-  <%= hidden_field_tag 'exs[]', @ids %>
+<% if session[:user_id].nil? %>
+  <%= link_to 'sign up', signup_path %> to save your workouts.
 <% end %>
 
-<br>
+<% if !session[:user_id].nil? %>
+  <%= form_for :workout, url: workouts_path do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name, class: "name_field" %>
+    <%= f.submit 'Save this Workout', class: 'submit_button' %>
+    <%= hidden_field_tag 'exs[]', @ids %>
+  <% end %>
+<% end %>
