@@ -1,6 +1,9 @@
+$teal: #009999;
+$grey: #777777;
+
 $display_font: 'Codystar';
 $reading_font: 'Josefin Sans';
-$grey: #777777;
+$flash-color: $teal;
 
 body {
   font-family: $reading_font;
@@ -13,6 +16,12 @@ body {
   border-left: 1px black dotted;
   border-right: 1px black dotted;
   height: auto;
+}
+
+.flash {
+  background-color: $flash-color;
+  margin: 10px;
+  padding: 10px;
 }
 
 h1 {
@@ -29,6 +38,7 @@ h2 {
   font-family: $display_font;
   padding: 5px;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .description {
