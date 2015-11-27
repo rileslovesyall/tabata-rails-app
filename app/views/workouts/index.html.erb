@@ -21,7 +21,7 @@ How many exercises do you want to do today? <br>
     <%= hidden_field_tag 'exs[]', @ids %>
   <% end %>
 <% end %>
-
+<br><br>
 <% @workouts.each do |workout| %>
-  <%= workout.name %>
+  <div class="workout_list"><%= workout.name %></div>
 <% end %>
