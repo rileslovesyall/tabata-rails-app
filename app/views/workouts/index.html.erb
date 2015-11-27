@@ -1,4 +1,4 @@
-<br><br>
+<h1>Workout Generator</h1>
 
 How many exercises do you want to do today? <br>
 <%= link_to 'one', workouts_path(num_ex: '1') %>
@@ -10,4 +10,14 @@ How many exercises do you want to do today? <br>
 <% @generator.each do |ex| %>
   <h2> <%= ex.name %> </h2>
   <div class='ex-description'> <%= ex.description %> </div>
+<% end %>
+
+
+<% if @generator.length != 0 %>
+  <%= form_for :workout do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit 'Save this Workout' %>
+    <%= hidden_field_tag 'exs[]', @ids %>
+  <% end %>
 <% end %>
