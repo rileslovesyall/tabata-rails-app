@@ -1,15 +1,18 @@
-<h1> <%= @user.username %>'s user page </h1>
-
-<%= link_to 'Generate a Workout', workouts_path %>
+<h1> -- <%= @user.username %> -- </h1>  
+  
+<%= render 'divider' %> 
 
 <h2>Saved Workouts</h2>
 <% @user.workouts.each do |w| %>
-<div> <%= link_to "#{w.name}", workout_path(w) %> </div>
+<div> <%= link_to "#{w.name}", workout_path(w) %> / <%= link_to 'edit', edit_workout_path(w) %> </div>
 <% end %>
+ 
+ <br>
+<%= render 'divider' %>
 
 <h2> Created Exercises </h2>
 <% @user.exercises.each do |ex| %>
-  <div id="exercise_list"><%= link_to "#{ex.name}", exercise_path(ex) %></div>
+  <div id="exercise_list"><%= link_to "#{ex.name}", exercise_path(ex) %> / <%= link_to 'edit', edit_exercise_path(ex) %></div>
 <% end %>
 
 

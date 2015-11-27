@@ -1,3 +1,3 @@
 <h1>edit this exercise</h1>
 
-<%= render partial:'exercise_form', locals:{url:exercise_path(@exercise)} %>
+<%= render partial:'exercise_form', locals:{url:exercise_path(Exercise.find(params[:id]))} %>
