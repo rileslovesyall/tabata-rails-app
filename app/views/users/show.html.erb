@@ -1,23 +1,39 @@
-<h1> -- <%= @user.username %> -- </h1>  
+<h1> -- <%= @user.username %> -- </h1> 
+<%= render 'head_divider' %> 
   
-<div = "description">
+<div class="description">
   <h3><%= @user.bio %></h3><br>
   / <%= link_to 'edit bio', edit_user_path(@user) %> /
 </div>
 
-<%= render 'divider' %> 
+<%= render 'head_divider' %> 
 
 <h2>Saved Workouts</h2>
 <% @user.workouts.each do |w| %>
 <div> <%= link_to "#{w.name}", workout_path(w), class: 'user_creation' %> / <%= link_to 'edit', edit_workout_path(w) %> / <%= link_to 'delete', workout_path(w), method: :delete %></div>
 <% end %>
- 
- <br>
-<%= render 'divider' %>
+<% if @user.workouts.empty? %>
+  <h3><%= link_to 'generate a workout', generator_path %></h3>
+  <%= render 'divider' %>
+  <div class='description'>
+    well go ahead and get started making some workouts! generate a workout using the link above. if you find one you really love, you can save it and access it from this page. 
+  </div>
+<% end %>
+
+<%= render 'head_divider' %>
 
 <h2> Created Exercises </h2>
 <% @user.exercises.each do |ex| %>
   <div id="exercise_list"><%= link_to "#{ex.name}", exercise_path(ex), class: 'user_creation' %> / <%= link_to 'edit', edit_exercise_path(ex) %> / <%= link_to 'delete', exercise_path(ex), method: :delete %></div>
 <% end %>
+<% if @user.exercises.empty? %>
+  <h3><%= link_to 'create an exercise', new_exercise_path %></h3>
+  <%= render 'divider' %>
+  <div class='description'>
+    if you want to add your own exercises to the mix, you can use the link here. then you can access your exercises from this page.
+  </div>
+<% end %>
+
+<%= render 'head_divider' %>
 
 
