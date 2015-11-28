@@ -26,7 +26,7 @@ class WorkoutsController < ApplicationController
 	def create
 		@workout = Workout.create(workout_params)
 		exs_string = params[:exs]
-		ex_id_arr = exs_string.split(' ')
+		ex_id_arr = exs_string[0].split(' ')
 		ex_id_arr.each do |ex|
 			x = Exercise.find(ex)
 			@workout.exercises <<  x
