@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :workouts    
 	has_many :exercises
+	has_many :completed_workouts
 
 	attr_accessor :password
 	validates_confirmation_of :password
@@ -18,6 +19,15 @@ class User < ActiveRecord::Base
 		else
 		nil
 		end
+	end
+
+	def activities
+		activities = {}
+		self.completed_workouts.each do |w|
+			workout = Workout.find(w.workout_id)
+			activities[w.id] = [workout, w.created_at]
+		end
+		return activities
 	end
 	
 end
