@@ -1,7 +1,7 @@
 <%= form_for @user do |f| %>
   <%= f.label :username %>:
   <%= f.text_field :username %><br><br>
-  <%= f.label :bio %>:
+  <div class= 'text_area_label'><%= f.label :bio %>: </div>
   <%= f.text_area :bio %><br>
   <%= f.submit class: 'submit-button' %>
 

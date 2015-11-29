@@ -9,5 +9,7 @@
   <%=f.password_field :password %><br>
   <%=f.label :password_confirmation %>:
   <%=f.password_field :password_confirmation %><br>
+  <div class= 'text_area_label'><%=f.label :bio %>:</div>
+  <%=f.text_area :bio, class: 'text_area_label' %><br>
   <%=f.submit "Sign Up", class: 'submit-button' %>
 <%end%>

@@ -5,7 +5,7 @@
     <%= link_to 'Sign Up', signup_path %>
   <% end %>
   <% if !current_user.nil? %>
-    <%= link_to 'Add Exercise', new_exercise_path %> /
+    <%= link_to 'Create Exercise', new_exercise_path %> /
     <%= link_to 'Profile', user_path(User.find(session[:user_id])) %> / 
     <%= link_to 'Log Out', logout_path %> 
   <% end %>

@@ -3,7 +3,7 @@
   <%= f.text_field :name, class: "name_field" %><br><br>
   <%= f.label :body_focus %>
   <%= f.select :body_focus, options_for_select(['all', 'core', 'upper body', 'lower body']) %><br><br>
-  <%= f.label :description, 'Description' %>:
+  <div class= 'text_area_label'><%= f.label :description, 'Description' %>:</div>
   <%= f.text_area :description %><br><br>
-  <%= f.submit, class: 'submit-button' %>
+  <%= f.submit 'submit', class: 'submit-button' %>
 <% end %>

@@ -20,14 +20,6 @@ exercises = [
 	{name: 'back scales', body_focus: 'lower', description: 'Begin by standing tall. Lock both knees and engage your core. Raise one leg behind you fairly quickly, but only as high as you can comfortably go. Lower your leg slowly and with control. Keep shoulders back and down. Breathe. Above all, make it pretty. The control you develop by performing this movement deliberately and beautifully is the real secret sauce here. Anyone can lift a leg up, but doing so with poise and control is the key to improvement.'},
 ]
 
-workouts = [
-	{name: "riley's fav", user_id: 1},
-]
-
-workouts.each do |workout|
-	Workout.create(workout)
-end
-
 users.each do |user|
 	User.create(user)
 end
