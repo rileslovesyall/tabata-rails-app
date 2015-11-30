@@ -15,8 +15,8 @@ class ExercisesController < ApplicationController
 
 	def create
 		@exercise = Exercise.create(exercise_params)
-		@exercise.user = User.find(session[:user_id])
-		redirect_to user_path(User.find(session[:user_id]))
+		@exercise.user = current_user
+		redirect_to user_path(User.find(current_user)
 	end
 
 	def edit
