@@ -64,6 +64,11 @@ class WorkoutsController < ApplicationController
 		redirect_to user_path(session[:user_id])
 	end
 
+	def completed
+		CompletedWorkout.create(workout_id: params[:id], user_id: current_user.id)
+		redirect_to user_path(current_user)
+	end
+
 	private
 
 	def workout_params

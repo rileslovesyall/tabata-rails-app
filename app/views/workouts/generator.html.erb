@@ -45,7 +45,7 @@ number of exercises:
   <%= form_for :workout, url: workouts_path do |f| %>
     <%= f.label :name %>:
     <%= f.text_field :name, class: "name_field" %>
-    <%= f.submit 'Save this Workout', class: 'submit-button' %>
+    <%= f.submit 'Save for Later', class: 'submit-button' %>
     <%= hidden_field_tag 'exs[]', @ids %>
     <%= hidden_field_tag 'user_id', current_user.id %>
   <% end %>

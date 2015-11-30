@@ -22,6 +22,16 @@
 
 <%= render 'head_divider' %>
 
+<h2>Completed Workouts</h2>
+<% @user.activities.each do |activity| %>
+  <% x = 1 %>
+  <%= link_to "#{activity[x][0].name}", workout_path(activity[x][0].id) %> / 
+  <%= activity[x][1].strftime("%B %d, %Y") %><br>
+  <% x += 1 %>
+<% end %>
+
+<%= render 'head_divider' %>
+
 <h2> Created Exercises </h2>
 <% @user.exercises.each do |ex| %>
   <div id="exercise_list"><%= link_to "#{ex.name}", exercise_path(ex), class: 'user_creation' %> / <%= link_to 'edit', edit_exercise_path(ex) %> / <%= link_to 'delete', exercise_path(ex), method: :delete %></div>

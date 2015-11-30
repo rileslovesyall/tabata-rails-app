@@ -1,7 +1,7 @@
 users = [
 	{username: 'riley', password: 'dog', password_confirmation: 'dog'}, 
-	{username: 'person', password: 'dog', password_confirmation: 'dog'}, 
 	{username: 'jakob', password: 'fire', password_confirmation: 'fire'}, 
+	{username: 'squanch', password: 'squanch', password_confirmation: 'dog'},
 	{username: 'taco', password: 'cheese', password_confirmation: 'cheese'}
 ]
 
@@ -20,10 +20,51 @@ exercises = [
 	{name: 'back scales', body_focus: 'lower', description: 'Begin by standing tall. Lock both knees and engage your core. Raise one leg behind you fairly quickly, but only as high as you can comfortably go. Lower your leg slowly and with control. Keep shoulders back and down. Breathe. Above all, make it pretty. The control you develop by performing this movement deliberately and beautifully is the real secret sauce here. Anyone can lift a leg up, but doing so with poise and control is the key to improvement.'},
 ]
 
+workouts = [
+	{name: 'Fancy Pants Workout', user_id: '1'}, 
+	{name: 'Incredible Hulk'}, 
+	{name: 'Booty Blast', user_id: '2'}, 
+	{name: 'Squanch', user_id: '3'}
+]
+
+exercises_workout = [
+	{exercise_id: 1, workout_id: 2}, 
+	{exercise_id: 2, workout_id: 2}, 
+	{exercise_id: 4, workout_id: 1}, 
+	{exercise_id: 3, workout_id: 1},
+	{exercise_id: 1, workout_id: 3}, 
+	{exercise_id: 2, workout_id: 4}, 
+	{exercise_id: 4, workout_id: 4}, 
+	{exercise_id: 3, workout_id: 3},
+	{exercise_id: 1, workout_id: 1}, 
+	{exercise_id: 2, workout_id: 3}, 
+	{exercise_id: 4, workout_id: 2}, 
+	{exercise_id: 3, workout_id: 4},
+	]
+
+completed_workouts = [
+	{workout_id: 1, user_id: 1},
+	{workout_id: 2, user_id: 1},
+	{workout_id: 3, user_id: 2},
+	{workout_id: 4, user_id: 2},
+]
+
 users.each do |user|
 	User.create(user)
 end
 
 exercises.each do |exercise|
 	Exercise.create(exercise)
+end
+
+workouts.each do |workout|
+	Workout.create(workout)
+end
+
+exercises_workout.each do |ex_w|
+	ExercisesWorkout.create(ex_w)
+end
+
+completed_workouts.each do |com|
+	CompletedWorkout.create(com)
 end

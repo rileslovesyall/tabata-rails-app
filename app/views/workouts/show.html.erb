@@ -24,6 +24,12 @@
   <%= link_to 'delete workout', workout_path(@workout), method: :delete, :onclick => 'alert("Are you sure?")' %>
 <% end %>
 
+<%= render 'head_divider' %>
+
+<h2><%= link_to 'i just did this workout like a boss', workout_completed_path(@workout) %></h2>
+
+<%= render 'head_divider' %>
+
 <br><br><br>
 
 <%= link_to 'all workouts', workouts_path, class: 'nav_link' %>
