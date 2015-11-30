@@ -18,7 +18,7 @@ number of exercises:
   - 10 sec rest<br> 
 </div>
 
-<br>
+<%= render 'head_divider' %>
 
 <% @generator.each do |ex| %>
   <h2> <%= link_to "#{ex.name}", exercise_path(ex) %> </h2>
