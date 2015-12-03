@@ -6,12 +6,24 @@ class WorkoutsController < ApplicationController
 
 	def generator
 		@x = params[:num_ex].to_i
-		@generator = Workout.generate(@x)
-		@ids = []
-		@generator.each do |ex|
-			@ids.push(ex.id)
+		if params[:descr].nil? && session[:descr].nil?
+			@descr = 'off'
+		elsif params[:descr].nil?
+			@descr = session[:descr]
+		else
+			@descr = params[:descr]
+			session[:descr] = @descr
 		end
-		@descr = params[:descr]
+		@generator = Workout.generate(@x)
+		if @descr.nil?
+			@ids = []
+			@generator.each do |ex|
+				@ids.push(ex.id)
+			end
+			session[:ids] = @ids
+		else
+			@ids = session[:ids]
+		end
 	end
 
 	def show
