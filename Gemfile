@@ -35,6 +35,7 @@ gem 'bcrypt', '~> 3.1.5', require: "bcrypt"
 
 group :production do
 	gem 'pg'
+	gem 'rails_12factor'
 end
 
 group :development, :test do
