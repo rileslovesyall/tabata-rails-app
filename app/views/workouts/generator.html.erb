@@ -16,7 +16,7 @@ number of exercises:
 <%= render 'head_divider' %>
 
 <% @generator.each do |ex| %>
-  <h2> <%= link_to "#{ex.name}", exercise_path(ex) %> </h2>
+  <h2><%= link_to "#{ex.name}", exercise_path(ex) %> </h2>
   <% if @descr == 'on'%>
     <div class='description'> <%= ex.description %> </div>
     <%= render 'divider' %>

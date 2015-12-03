@@ -14,14 +14,19 @@ class WorkoutsController < ApplicationController
 			@descr = params[:descr]
 			session[:descr] = @descr
 		end
-		@generator = Workout.generate(@x)
-		if @descr.nil?
+		if params[:descr].nil?
+			@generator = Workout.generate(@x)
 			@ids = []
 			@generator.each do |ex|
 				@ids.push(ex.id)
 			end
 			session[:ids] = @ids
+			session[:generator] = @generator
 		else
+			@generator = []
+			session[:generator].each do |ex|
+				@generator.push(Exercise.find(ex['id']))
+			end
 			@ids = session[:ids]
 		end
 	end
