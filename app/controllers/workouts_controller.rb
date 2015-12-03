@@ -21,11 +21,10 @@ class WorkoutsController < ApplicationController
 				@ids.push(ex.id)
 			end
 			session[:ids] = @ids
-			session[:generator] = @generator
 		else
 			@generator = []
-			session[:generator].each do |ex|
-				@generator.push(Exercise.find(ex['id']))
+			session[:ids].each do |id|
+				@generator.push(Exercise.find(id))
 			end
 			@ids = session[:ids]
 		end
