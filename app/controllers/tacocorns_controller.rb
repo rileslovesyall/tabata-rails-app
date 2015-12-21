@@ -1,2 +1,0 @@
-class TacocornsController < ApplicationController
-end
