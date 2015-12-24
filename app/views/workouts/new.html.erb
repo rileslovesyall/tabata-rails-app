@@ -1,0 +1,37 @@
+<h1>custom workout</h1>
+
+<%= render 'head_divider' %>
+
+
+<%= render 'tabata_instructions' %>
+
+<%= render 'head_divider' %>
+
+
+
+<% if session[:user_id].nil? %>
+  <%= link_to 'sign up', signup_path %> to save your workouts.
+<% end %>
+
+<% if !session[:user_id].nil? && @x != 0 %>
+  <%= form_for :workout, url: workouts_path do |f| %>
+    <h2> Add exercises </h2>
+    <% @exercises.each do |ex| %>
+        <%= check_box_tag 'exs[]', ex.id  %>
+        <%= ex.name %>
+    <br>
+    <% end %>
+    <br>
+    <%= f.label :name %>:
+    <%= f.text_field :name, class: "name_field" %>
+
+    <%= f.submit 'Save for Later', class: 'submit-button' %>
+    <%= hidden_field_tag 'exs[]', @ids %>
+    <%= hidden_field_tag 'user_id', current_user.id %>
+  <% end %>
+  <%= render 'head_divider' %>
+<% end %>
+
+
+
+<%= link_to 'all saved workouts', workouts_path %>

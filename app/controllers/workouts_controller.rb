@@ -37,12 +37,15 @@ class WorkoutsController < ApplicationController
 
   def new
     @workout = Workout.new
+    @exercises = Exercise.all
   end
 
   def create
     @workout = Workout.create(workout_params)
-    exs_string = params[:exs]
-    ex_id_arr = exs_string[0].split(' ')
+  #  exs_string = params[:exs]
+  #  ex_id_arr = exs_string[0].split(' ')
+    ex_id_arr = params[:exs]
+    ex_id_arr.pop
     ex_id_arr.each do |ex|
       x = Exercise.find(ex)
       @workout.exercises <<  x
@@ -65,10 +68,10 @@ class WorkoutsController < ApplicationController
     workout.update(workout_params)
     exs = params[:workout][:exercise_ids]
     exs.each do |ex|
-      if ex.to_i != 0 
+      if ex.to_i != 0
         x = Exercise.find(ex.to_i)
         if !workout.exercises.include?(x)
-          workout.exercises <<  x 
+          workout.exercises <<  x
         end
       end
     end
