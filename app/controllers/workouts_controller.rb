@@ -42,10 +42,13 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = Workout.create(workout_params)
-  #  exs_string = params[:exs]
-  #  ex_id_arr = exs_string[0].split(' ')
-    ex_id_arr = params[:exs]
-    ex_id_arr.pop
+    if params[:exs].length == 1
+      exs_string = params[:exs]
+      ex_id_arr = exs_string[0].split(' ')
+    else
+      ex_id_arr = params[:exs]
+      ex_id_arr.pop
+    end
     ex_id_arr.each do |ex|
       x = Exercise.find(ex)
       @workout.exercises <<  x
