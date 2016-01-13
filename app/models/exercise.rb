@@ -4,8 +4,9 @@ class Exercise < ActiveRecord::Base
   has_many :exercises_workouts
   validates :name, :body_focus, :description, presence: true
 
-  def self.length
-    return Exercise
-  end
+  # Not sure what this method is??
+  # def self.length
+  #   return Exercise
+  # end
 
 end

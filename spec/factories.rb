@@ -12,6 +12,15 @@ FactoryGirl.define do
   factory :exercise do
     name "An Exercise"
     description "Here's how you do it."
-    body_focus "back"
+    body_focus "all"
+    association :user
+  end
+  factory :exercisesworkout do
+    association :workout
+    association :exercise
+  end
+  factory :completed_workout do
+    association :user
+    association :workout
   end
 end
