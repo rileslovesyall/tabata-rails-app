@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Workout, type: :model do
   describe "validations" do
-
     it "must have a name" do
       expect(build(:workout)).to be_valid
       expect(build(:workout, name: nil)).to be_invalid
+    end
+    it "belongs to a user" do
+      expect(build(:workout).user).to be_an_instance_of(User)
     end
   end
 
