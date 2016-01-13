@@ -3,15 +3,16 @@ class Workout < ActiveRecord::Base
   has_many :completed_workouts
   has_many :exercises, through: :exercises_workouts
   has_many :exercises_workouts
+  validates :name, presence: true
 
-  def self.generate(x)
+  def self.generate(num_exercises)
     exs = Exercise.all.shuffle
-    gen_exs = []
-    x.times do
+    generated_exs = []
+    num_exercises.times do
       ex = exs.pop
-      gen_exs.push(ex)
+      generated_exs.push(ex)
     end
-    return gen_exs
+    return generated_exs
   end
 
 end
